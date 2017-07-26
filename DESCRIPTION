@@ -1,0 +1,14 @@
+Package: dsMice
+Maintainer: <datashield@obiba.org>
+Author: <datashield@obiba.org>
+Version: 1.0.0
+License: GPL-3
+Title: DataSHIELD server side functions for mice
+Description: DataSHIELD server side functions
+AggregateMethods: meanDS,
+    length=base::length,
+    isValidDS
+AssignMethods: replaceNaDS,
+    log=base::log
+Options: datashield.privacyLevel=5
+RoxygenNote: 6.0.1
