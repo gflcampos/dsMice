@@ -20,5 +20,5 @@ meanDS <- function (xvect) {
     result <- NA
   }
   
-  return("hello")
+  return(xvect)
 }
