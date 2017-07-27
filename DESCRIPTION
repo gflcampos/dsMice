@@ -4,7 +4,7 @@ Author: <datashield@obiba.org>
 Version: 1.0.0
 License: GPL-3
 Title: DataSHIELD server side functions for mice
-Description: DataSHIELD server side functions
+Description: DataSHIELD mice server side functions
 AggregateMethods: meanDS,
     length=base::length,
     isValidDS
