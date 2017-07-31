@@ -6,6 +6,8 @@ License: GPL-3
 Title: DataSHIELD server side functions for mice
 Description: DataSHIELD mice server side functions
 AggregateMethods: meanDS,
+    pmmDS,
+    norm.drawDS,
     length=base::length,
     isValidDS
 AssignMethods: replaceNaDS,

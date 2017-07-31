@@ -2,4 +2,6 @@
 
 export(isValidDS)
 export(meanDS)
+export(norm.drawDS)
+export(pmmDS)
 export(replaceNaDS)
