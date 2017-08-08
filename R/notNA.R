@@ -7,14 +7,14 @@
 #' @return negation
 #' @export
 #'
-not <- function (x) {
+notNA <- function (x) {
   
   # check if the input vector is valid (i.e. meets DataSHIELD privacy criteria)
   #check <- isValidDS(xvect)
   
   # return missing value if the input vector is not valid
   #if(check){
-    result <- !x
+    result <- !is.na(x)
   #}else{
   #  result <- NA
   #}
