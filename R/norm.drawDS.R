@@ -29,9 +29,9 @@ norm.drawDS <- function(y, ry, x, ridge = 1e-05, ...) {
     pen <- matrix(pen)
   v <- solve(xtx + diag(pen))
   coef <- t(yobs %*% xobs %*% v)
-  #residuals <- yobs - xobs %*% coef
-  #df <- max(sum(ry) - ncol(x), 1)
-  #sigma.star <- sqrt(sum((residuals)^2)/rchisq(1, df))
+  residuals <- yobs - xobs %*% coef
+  df <- max(sum(ry) - ncol(x), 1)
+  sigma.star <- sqrt(sum((residuals)^2)/rchisq(1, df))
   #beta.star <- coef + (t(chol(sym(v))) %*% rnorm(ncol(x))) * sigma.star
   #parm <- list(coef, beta.star, sigma.star)
   #names(parm) <- c("coef", "beta", "sigma")
