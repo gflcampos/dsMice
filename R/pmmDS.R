@@ -44,14 +44,14 @@ pmmDS <- function (y, ry, x, wy = NULL, donors = 5,
   # return NA if the input vector is not valid
   if(check){ # disable datashield check for now
     if (is.null(wy))
-      wy <- !ry
-    x <- cbind(1, as.matrix(x))
-    ynum <- y
-    if (is.factor(y)) 
-      ynum <- as.integer(y)
-    parm <- norm.drawDS(ynum, ry, x, ridge = ridge, ...)
+      #wy <- !ry
+    #x <- cbind(1, as.matrix(x))
+    #ynum <- y
+    #if (is.factor(y)) 
+      #ynum <- as.integer(y)
+    #parm <- norm.drawDS(ynum, ry, x, ridge = ridge, ...)
     
-    result <- parm
+    result <- 'parm'
   }else{
     result <- NA
   }
