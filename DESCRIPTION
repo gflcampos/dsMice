@@ -10,7 +10,8 @@ AggregateMethods: meanDS,
     norm.drawDS,
     length=base::length,
     isValidDS
-AssignMethods: replaceNaDS,
+AssignMethods: cc,
+    replaceNaDS,
     log=base::log
 Options: datashield.privacyLevel=5
 RoxygenNote: 6.0.1
