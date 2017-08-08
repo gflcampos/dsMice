@@ -6,6 +6,9 @@
 \usage{
 notNA(x)
 }
+\arguments{
+\item{x}{parameter}
+}
 \value{
 negation
 }

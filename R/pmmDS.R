@@ -30,6 +30,7 @@
 #'@param \dots Other named arguments.
 #'@return Vector with imputed data, same type as \code{y}, and of length 
 #'\code{sum(wy)}
+#'@details details
 #'@author Stef van Buuren, Karin Groothuis-Oudshoorn
 #'@return a numeric, the statistical mean
 #'@export

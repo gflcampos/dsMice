@@ -3,7 +3,7 @@
 #' @description Negate
 #' @details if the length of input vector is less than the set filter
 #' a missing value is returned.
-#' @param x
+#' @param x parameter
 #' @return negation
 #' @export
 #'

@@ -52,6 +52,9 @@ a numeric, the statistical mean
 \description{
 placeholder
 }
+\details{
+details
+}
 \author{
 Stef van Buuren, Karin Groothuis-Oudshoorn
 }
