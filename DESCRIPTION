@@ -10,7 +10,8 @@ AggregateMethods: meanDS,
     norm.drawDS,
     length=base::length,
     isValidDS
-AssignMethods: cc,
+AssignMethods: not,
+    cc,
     cci,
     replaceNaDS,
     log=base::log

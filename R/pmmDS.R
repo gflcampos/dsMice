@@ -42,8 +42,8 @@ pmmDS <- function (y, ry, x, wy = NULL, donors = 5,
   check <- TRUE
   
   # return NA if the input vector is not valid
-  if(check){
-    if (is.null(wy)) 
+  if(check){ # disable datashield check for now
+    if (is.null(wy))
       wy <- !ry
     x <- cbind(1, as.matrix(x))
     ynum <- y
