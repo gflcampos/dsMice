@@ -10,7 +10,7 @@ AggregateMethods: meanDS,
     norm.drawDS,
     length=base::length,
     isValidDS
-AssignMethods: not,
+AssignMethods: notNA,
     cc,
     cci,
     replaceNaDS,
