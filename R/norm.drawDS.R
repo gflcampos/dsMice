@@ -21,14 +21,14 @@
 #'@author Stef van Buuren, Karin Groothuis-Oudshoorn, 2000
 #'@export
 norm.drawDS <- function(y, ry, x, ridge = 1e-05, ...) {
-  #xobs <- x[ry, ]
-  #yobs <- y[ry]
-  #xtx <- crossprod(xobs)
-  #pen <- ridge * diag(xtx)
-  #if (length(pen) == 1)
-  #  pen <- matrix(pen)
-  #v <- solve(xtx + diag(pen))
-  #coef <- t(yobs %*% xobs %*% v)
+  xobs <- x[ry, ]
+  yobs <- y[ry]
+  xtx <- crossprod(xobs)
+  pen <- ridge * diag(xtx)
+  if (length(pen) == 1)
+    pen <- matrix(pen)
+  v <- solve(xtx + diag(pen))
+  coef <- t(yobs %*% xobs %*% v)
   #residuals <- yobs - xobs %*% coef
   #df <- max(sum(ry) - ncol(x), 1)
   #sigma.star <- sqrt(sum((residuals)^2)/rchisq(1, df))
