@@ -35,5 +35,5 @@ norm.drawDS <- function(y, ry, x, ridge = 1e-05, ...) {
   beta.star <- coef + (t(chol(sym(v))) %*% rnorm(ncol(x))) * sigma.star
   parm <- list(coef, beta.star, sigma.star)
   names(parm) <- c("coef", "beta", "sigma")
-  return(parm)
+  return('parm')
 }
