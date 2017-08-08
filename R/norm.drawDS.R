@@ -38,3 +38,5 @@ norm.drawDS <- function(y, ry, x, ridge = 1e-05, ...) {
   #names(parm) <- c("coef", "beta", "sigma")
   return(v)
 }
+
+sym <- function(x) {(x + t(x)) / 2}
