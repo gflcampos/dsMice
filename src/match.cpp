@@ -63,7 +63,6 @@ IntegerVector matcher(NumericVector obs, NumericVector mis, int k) {
   return matched + 1;
 }
 
-
 static R_CallMethodDef callMethods[]  = {
   {"matcher", (DL_FUNC) &matcher, 3},
   {NULL, NULL, 0}
