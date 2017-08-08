@@ -52,7 +52,21 @@ pmmDS <- function (y, ry, x, wy = NULL, donors = 5,
       ynum <- as.integer(y)
     parm <- norm.drawDS(ynum, ry, x, ridge = ridge, ...)
     
-    result <- parm
+    if (matchtype == 0L) {
+      yhatobs <- x[ry, , drop = FALSE] %*% parm$coef
+      yhatmis <- x[wy, , drop = FALSE] %*% parm$coef
+    }
+    if (matchtype == 1L) {
+      yhatobs <- x[ry, , drop = FALSE] %*% parm$coef
+      yhatmis <- x[wy, , drop = FALSE] %*% parm$beta
+    }
+    if (matchtype == 2L) {
+      yhatobs <- x[ry, , drop = FALSE] %*% parm$beta
+      yhatmis <- x[wy, , drop = FALSE] %*% parm$beta
+    }
+    #idx <- matcher(yhatobs, yhatmis, k = donors)
+    
+    result <- yhatmis #y[ry][idx]
   }else{
     result <- NA
   }
