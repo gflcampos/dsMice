@@ -49,7 +49,7 @@ pmmDS <- function (y, ry, x, wy = NULL, donors = 5,
     ynum <- y
     if (is.factor(y)) 
       ynum <- as.integer(y)
-    parm <- 'hello' #norm.drawDS(ynum, ry, x, ridge = ridge, ...)
+    parm <- norm.drawDS(ynum, ry, x, ridge = ridge, ...)
     
     result <- parm
   }else{
