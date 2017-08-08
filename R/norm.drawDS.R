@@ -32,11 +32,10 @@ norm.drawDS <- function(y, ry, x, ridge = 1e-05, ...) {
   residuals <- yobs - xobs %*% coef
   df <- max(sum(ry) - ncol(x), 1)
   sigma.star <- sqrt(sum((residuals)^2)/rchisq(1, df))
-  test <- sym(v)
-  #beta.star <- coef + (t(chol(sym(v))) %*% rnorm(ncol(x))) * sigma.star #FAILS!
-  #parm <- list(coef, beta.star, sigma.star)
-  #names(parm) <- c("coef", "beta", "sigma")
-  return(v)
+  beta.star <- coef + (t(chol(sym(v))) %*% rnorm(ncol(x))) * sigma.star #FAILS!
+  parm <- list(coef, beta.star, sigma.star)
+  names(parm) <- c("coef", "beta", "sigma")
+  return(parm)
 }
 
 sym <- function(x) {(x + t(x)) / 2}
