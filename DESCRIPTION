@@ -11,6 +11,7 @@ AggregateMethods: meanDS,
     length=base::length,
     isValidDS
 AssignMethods: cc,
+    cci,
     replaceNaDS,
     log=base::log
 Options: datashield.privacyLevel=5
