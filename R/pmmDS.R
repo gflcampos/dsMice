@@ -51,7 +51,7 @@ pmmDS <- function (y, ry, x, wy = NULL, donors = 5,
       ynum <- as.integer(y)
     parm <- norm.drawDS(ynum, ry, x, ridge = ridge, ...)
     
-    result <- parm
+    result <- 'parm'
   }else{
     result <- NA
   }
