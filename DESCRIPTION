@@ -11,6 +11,7 @@ LinkingTo: Rcpp
 AggregateMethods: meanDS,
     pmmDS,
     norm.drawDS,
+    matcher,
     length=base::length,
     isValidDS
 AssignMethods: notNA,
