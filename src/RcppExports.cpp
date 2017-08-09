@@ -7,7 +7,7 @@ using namespace Rcpp;
 
 // matcher
 IntegerVector matcher(NumericVector obs, NumericVector mis, int k);
-RcppExport SEXP dsMice_matcher(SEXP obsSEXP, SEXP misSEXP, SEXP kSEXP) {
+RcppExport SEXP _dsMice_matcher(SEXP obsSEXP, SEXP misSEXP, SEXP kSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -17,4 +17,14 @@ BEGIN_RCPP
     rcpp_result_gen = Rcpp::wrap(matcher(obs, mis, k));
     return rcpp_result_gen;
 END_RCPP
+}
+
+static const R_CallMethodDef CallEntries[] = {
+    {"_dsMice_matcher", (DL_FUNC) &_dsMice_matcher, 3},
+    {NULL, NULL, 0}
+};
+
+RcppExport void R_init_dsMice(DllInfo *dll) {
+    R_registerRoutines(dll, NULL, CallEntries, NULL, NULL);
+    R_useDynamicSymbols(dll, FALSE);
 }
