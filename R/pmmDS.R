@@ -64,7 +64,18 @@ pmmDS <- function (y, ry, x, wy = NULL, donors = 5,
       yhatobs <- x[ry, , drop = FALSE] %*% parm$beta
       yhatmis <- x[wy, , drop = FALSE] %*% parm$beta
     }
-    idx <- matcher(yhatobs, yhatmis, k = donors)
+    #idx <- matcher(yhatobs, yhatmis, k = donors)
+    sourceCpp(code='
+        #include <Rcpp.h>
+        #include <algorithm>
+        using namespace std;
+        using namespace Rcpp;
+
+        // [[Rcpp::export]]
+        IntegerVector matcher(NumericVector obs, NumericVector mis, int k) {
+          return 3;
+        }
+    ')
     
     result <- 'HELLO'#y[ry][idx]
   }else{
