@@ -64,9 +64,9 @@ pmmDS <- function (y, ry, x, wy = NULL, donors = 5,
       yhatobs <- x[ry, , drop = FALSE] %*% parm$beta
       yhatmis <- x[wy, , drop = FALSE] %*% parm$beta
     }
-    #idx <- matcher(yhatobs, yhatmis, k = donors)
+    idx <- matcher(yhatobs, yhatmis, k = donors)
     
-    result <- yhatmis#y[ry][idx]
+    result <- 'HELLO'#y[ry][idx]
   }else{
     result <- NA
   }
