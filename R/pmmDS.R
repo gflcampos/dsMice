@@ -146,7 +146,7 @@ pmmDS <- function (y, ry, x, wy = NULL, donors = 5,
     
     idx <- matcher(yhatobs, yhatmis, k = 5)
     
-    result <- idx#y[ry][idx]
+    result <- y[ry][idx]
   }else{
     result <- NA
   }
