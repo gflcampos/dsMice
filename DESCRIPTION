@@ -3,8 +3,8 @@ Maintainer: <datashield@obiba.org>
 Author: <datashield@obiba.org>
 Version: 1.0.0
 License: GPL-3
-Title: DataSHIELD server side functions for mice
-Description: DataSHIELD mice server side functions
+Title: DataSHIELD server-side functions for the mice package
+Description: DataSHIELD server-side functions for the mice package
 Imports:
     Rcpp
 LinkingTo: Rcpp

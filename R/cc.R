@@ -1,6 +1,6 @@
-#'Select complete cases
 #'
-#'Extracts the complete cases, also known as \emph{listwise deletion}.
+#'@title Select complete cases
+#'@description Extracts the complete cases, also known as \emph{listwise deletion}.
 #'\code{cc(x)} is similar to 
 #'\code{na.omit(x)}, but returns an object of the same class 
 #'as the input data. Dimensions are not dropped. For extracting

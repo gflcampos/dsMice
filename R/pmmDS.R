@@ -1,6 +1,6 @@
 #'
-#'@title placeholder
-#'@description placeholder
+#'@title Calculates imputations for univariate missing data by predictive mean matching
+#'@description This function performs imputation by predictive mean matching by executing the pmmDS function on the server-side.
 #'@param y Vector to be imputed
 #'@param ry Logical vector of length \code{length(y)} indicating the 
 #'the subset \code{y[ry]} of elements in \code{y} to which the imputation 
@@ -30,11 +30,76 @@
 #'@param \dots Other named arguments.
 #'@return Vector with imputed data, same type as \code{y}, and of length 
 #'\code{sum(wy)}
-#'@details details
 #'@author Stef van Buuren, Karin Groothuis-Oudshoorn
-#'@return a numeric, the statistical mean
-#'@export
+#'@details
+#' Imputation of \code{y} by predictive mean matching, based on 
+#' van Buuren (2012, p. 73). The procedure is as follows:
+#' 
+#'\enumerate{
+#'\item{Calculate the cross-product matrix \eqn{S=X_{obs}'X_{obs}}.}
+#'\item{Calculate \eqn{V = (S+{diag}(S)\kappa)^{-1}}, with some small ridge 
+#'parameter \eqn{\kappa}.}
+#'\item{Calculate regression weights \eqn{\hat\beta = VX_{obs}'y_{obs}.}}
+#'\item{Draw \eqn{q} independent \eqn{N(0,1)} variates in vector \eqn{\dot z_1}.}
+#'\item{Calculate \eqn{V^{1/2}} by Cholesky decomposition.}
+#'\item{Calculate \eqn{\dot\beta = \hat\beta + \dot\sigma\dot z_1 V^{1/2}}.}
+#'\item{Calculate \eqn{\dot\eta(i,j)=|X_{{obs},[i]|}\hat\beta-X_{{mis},[j]}\dot\beta} 
+#'with \eqn{i=1,\dots,n_1} and \eqn{j=1,\dots,n_0}.}
+#'\item{Construct \eqn{n_0} sets \eqn{Z_j}, each containing \eqn{d} candidate donors, from Y_{obs} such that \eqn{\sum_d\dot\eta(i,j)} is minimum for all \eqn{j=1,\dots,n_0}. Break ties randomly.}
+#'\item{Draw one donor \eqn{i_j} from \eqn{Z_j} randomly for \eqn{j=1,\dots,n_0}.}
+#'\item{Calculate imputations \eqn{\dot y_j = y_{i_j}} for \eqn{j=1,\dots,n_0}.}
+#'}
 #'
+#'The name \emph{predictive mean matching} was proposed by Little (1988). 
+#'
+#'@references Little, R.J.A. (1988), Missing data adjustments in large surveys
+#'(with discussion), Journal of Business Economics and Statistics, 6, 287--301.
+#'
+#'Morris TP, White IR, Royston P (2015). Tuning multiple imputation by predictive 
+#'mean matching and local residual draws. BMC Med Res Methodol. ;14:75.
+#'
+#'Van Buuren, S. (2012). Flexible Imputation of Missing Data. 
+#'CRC/Chapman \& Hall, Boca Raton, FL.
+#'
+#'Van Buuren, S., Groothuis-Oudshoorn, K. (2011). \code{mice}: Multivariate
+#'Imputation by Chained Equations in \code{R}. \emph{Journal of Statistical
+#'Software}, \bold{45}(3), 1-67. \url{http://www.jstatsoft.org/v45/i03/}
+#'@family univariate imputation functions
+#'@keywords datagen
+#'@examples 
+#'
+#'# In this example, we assume that the Opal server to which we are connecting, 
+#'# has a table that contains the 'boys' data from the original mice package.
+#'
+#'# Load DataSHIELD libraries
+#'library(dsBaseClient)
+#'library(dsMiceClient)
+#'
+#'# Build login information
+#'server <- c("server_name")
+#'url <- c("opal_url")
+#'user <- "username"
+#'password <- "password"
+#'table <- c("project_name.table_name")
+#'logindata <- data.frame(server,url,user,password,table)
+#'
+#'# Login and assign the 'boys' dataset to varable 'D' on the server-side
+#'opals <- datashield.login(logins=logindata, assign=TRUE)
+#'
+#'datashield.assign(opals, symbol="xname", value=as.symbol("c('age', 'hgt', 'wgt')"))
+#'datashield.assign(opals, symbol="r", value=as.symbol("complete.cases(D[, xname])"))
+#'datashield.assign(opals, symbol="x", value=as.symbol("D[r, xname]"))
+#'datashield.assign(opals, symbol="y", value=as.symbol("D[r, 'tv']"))
+#'datashield.assign(opals, symbol="ry", value=as.symbol("notNA(y)"))
+#'
+#'# Impute missing tv data
+#'datashield.aggregate(opals, "pmmDS(y, ry, x)")
+#'yimp <- ds.mice.pmm('y','ry','x')
+#'length(yimp)
+#'hist(yimp, xlab = 'Imputed missing tv')
+#'
+#'@export
+
 pmmDS <- function (y, ry, x, wy = NULL, donors = 5, 
                    matchtype = 1L, ridge = 1e-05, ...)
 {
