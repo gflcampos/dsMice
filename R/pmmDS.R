@@ -64,7 +64,7 @@ pmmDS <- function (y, ry, x, wy = NULL, donors = 5,
       yhatobs <- x[ry, , drop = FALSE] %*% parm$beta
       yhatmis <- x[wy, , drop = FALSE] %*% parm$beta
     }
-    library('Rcpp')
+    
     sourceCpp(code='
         #include <Rcpp.h>
         #include <algorithm>
@@ -79,7 +79,7 @@ pmmDS <- function (y, ry, x, wy = NULL, donors = 5,
     
     idx <- matcher(yhatobs, yhatmis, k = 5)
     
-    result <- 'HELLO'#y[ry][idx]
+    result <- idx#y[ry][idx]
   }else{
     result <- NA
   }
