@@ -15,15 +15,10 @@
 #'# cc(nhanes)   # get the 13 complete cases
 #'# cc(nhanes$bmi) # extract complete bmi
 #'@export
+#'
 ccDS <- function(x) {
-  # check if the input vector is valid (i.e. meets DataSHIELD privacy criteria)
-  check <- dsBase::isValidDS(x)
   
-  if(check) {
-    result <- mice::cc(x)
-  } else { # return NA if the input vector is not valid
-    result <- NA
-  }
+  result <- mice::cc(x)
   
   return(result)
 }
