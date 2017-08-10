@@ -103,7 +103,7 @@
 pmmDS <- function (y, ry, x, wy = NULL, donors = 5, 
                    matchtype = 1L, ridge = 1e-05, ...)
 {
-  result <- mice::mice.impute.pmm(y, ry, x, wy, donors, matchtype, ridge)
+  result <- mice::mice.impute.pmm(y, ry, x, wy=wy, donors=donors, matchtype=matchtype, ridge=ridge)
   
   return(result)
   # check if the input vector is valid (i.e. meets DataSHIELD privacy criteria)
