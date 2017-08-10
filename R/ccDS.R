@@ -23,7 +23,7 @@ ccDS <- function(x) {
   check <- isValidDS(x)
   
   if(check) {
-    result <- mice::mice.cc(x)
+    result <- mice::cc(x)
   } else { # return NA if the input vector is not valid
     result <- NA
   }
