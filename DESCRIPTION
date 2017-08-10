@@ -5,6 +5,8 @@ Version: 1.0.0
 License: GPL-3
 Title: DataSHIELD server-side functions for the mice package
 Description: DataSHIELD server-side functions for the mice package
+Depends:
+    mice
 Imports:
     Rcpp
 LinkingTo: Rcpp
