@@ -8,15 +8,11 @@ Description: DataSHIELD server-side functions for the mice package
 Imports:
     Rcpp
 LinkingTo: Rcpp
-AggregateMethods: meanDS,
-    pmmDS,
+AggregateMethods: pmmDS,
     norm.drawDS,
-    length=base::length,
     isValidDS
 AssignMethods: notNA,
     cc,
-    cci,
-    replaceNaDS,
-    log=base::log
+    cci
 Options: datashield.privacyLevel=5
 RoxygenNote: 6.0.1
