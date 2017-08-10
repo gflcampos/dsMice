@@ -6,15 +6,9 @@ License: GPL-3
 Title: DataSHIELD server-side functions for the mice package
 Description: DataSHIELD server-side functions for the mice package
 Depends:
-    mice
-Imports:
-    Rcpp
-LinkingTo: Rcpp
-AggregateMethods: pmmDS,
-    norm.drawDS,
-    isValidDS
-AssignMethods: notNA,
-    cc,
-    cci
+  mice
+AggregateMethods: pmmDS
+AssignMethods: ccDS,
+  notNA
 Options: datashield.privacyLevel=5
 RoxygenNote: 6.0.1
