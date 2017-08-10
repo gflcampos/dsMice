@@ -9,6 +9,6 @@ Depends:
   mice
 AggregateMethods: pmmDS
 AssignMethods: ccDS,
-  notNA
+  notNaDS
 Options: datashield.privacyLevel=5
 RoxygenNote: 6.0.1
