@@ -20,7 +20,7 @@
 #'@export
 ccDS <- function(x) {
   # check if the input vector is valid (i.e. meets DataSHIELD privacy criteria)
-  check <- mice::isValidDS(x)
+  check <- dsBase::isValidDS(x)
   
   if(check) {
     result <- mice::cc(x)
