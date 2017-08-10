@@ -10,9 +10,6 @@
 #'\code{mids}, \code{data.frame} and \code{matrix}. Also, \code{x} 
 #'could be a vector.
 #'@return A \code{vector}, \code{matrix} or \code{data.frame} containing the data of the complete cases.
-#'@author Stef van Buuren, 2017.
-#'@seealso \code{\link{na.omit}}, \code{\link{cci}}, \code{\link{ici}}
-#'@keywords univar
 #'@examples
 #'
 #'# cc(nhanes)   # get the 13 complete cases
