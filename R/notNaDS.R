@@ -10,10 +10,10 @@
 notNaDS <- function (x) {
   
   # check if the input vector is valid (i.e. meets DataSHIELD privacy criteria)
-  #check <- dsBase::isValidDS(x)
+  check <- dsBase::isValidDS(x)
   
   # return missing value if the input vector is not valid
-  if(TRUE){
+  if(check){
     result <- !is.na(x)
   }else{
     result <- NA

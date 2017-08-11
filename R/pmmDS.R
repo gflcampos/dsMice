@@ -67,9 +67,9 @@
 pmmDS <- function (y, ry, x, wy = NULL, donors = 5, 
                    matchtype = 1L, ridge = 1e-05, ...) {
   # check if the input vector is valid (i.e. meets DataSHIELD privacy criteria)
-  #check <- dsBase:::isValidDS(y)
+  check <- dsBase:::isValidDS(y)
   
-  if (TRUE) {
+  if (check) {
     result <- mice::mice.impute.pmm(y, ry, x, wy=wy, donors=donors, matchtype=matchtype, ridge=ridge)
   } else { # return NA if the input is not valid
     result <- NA
